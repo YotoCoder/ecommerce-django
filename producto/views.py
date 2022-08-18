@@ -40,8 +40,11 @@ class ProductDetail(DetailView):
 class CreateProduct(CreateView):
 
     model = Producto
-    template_name = 'templates/producto/create_product.html'
-    form = ProductForm
+    
     fields = '__all__'
+
+    template_name = 'templates/producto/create_product.html'
     success_url = '/product-list'
 
+    class Meta:
+        form = ProductForm

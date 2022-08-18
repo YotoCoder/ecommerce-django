@@ -22,10 +22,15 @@ class Category(models.Model):
 class Producto(models.Model):
     name = models.CharField(max_length=30)
     price = models.FloatField()
-    description = models.CharField(max_length=500, blank=True, null=True, default='')
-    code = models.CharField(max_length=50, blank=True, null=True, default='')
-    color = models.CharField(max_length=30, blank=True, null=True, default='')
+    description = models.TextField(max_length=500, blank=True, null=True, default='')
+    # code = models.CharField(max_length=50, blank=True, null=True, default='')
+    # color = models.CharField(max_length=30, blank=True, null=True, default='')
     img = models.ImageField(upload_to='img/productos/', blank=True, null=True, default='')
+    img1 = models.ImageField(upload_to='img/productos/', blank=True, null=True, default='')
+    img2 = models.ImageField(upload_to='img/productos/', blank=True, null=True, default='')
+    img3 = models.ImageField(upload_to='img/productos/', blank=True, null=True, default='')
+    img4 = models.ImageField(upload_to='img/productos/', blank=True, null=True, default='')
+    img5 = models.ImageField(upload_to='img/productos/', blank=True, null=True, default='')
     in_stock = models.IntegerField(default=1)
     
     category = models.ManyToManyField(Category)

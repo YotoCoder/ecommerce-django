@@ -6,9 +6,13 @@
   <thead>
     <tr>
         
-        {% for head in headlines %}
-            <th scope="col"> {{head.name}} </th>
-        {% endfor %}
+        <th scope="col">ID </th>
+        <th scope="col">Name </th>
+        <th scope="col">Price </th>
+        <th scope="col">Description </th>
+        <th scope="col">Imagen </th>
+        <th scope="col">In Sock </th>
+
         <th>Actions: <a href="/create-product" ><button class="btn btn-primary">Add</button></a></th>
         
     </tr>
@@ -20,11 +24,11 @@
         <td><a href="/product-detail/{{head.id}}" >{{head.name}}</a></td>
         <td>{{head.price}}</td>
         <td>{% if head.description %}{{head.description}}{% endif %}</td>
-        <td>{% if head.code %}{{ head.code }}{% endif %}</td>
-        <td>{% if head.color %}{{ head.color }}{% endif %}</td>
+        <!-- <td>{% if head.code %}{{ head.code }}{% endif %}</td>
+        <td>{% if head.color %}{{ head.color }}{% endif %}</td>-->
         <td>{% if head.img %}<img width="70px" height="70" src='{{head.img.url}}'>{% endif %}</td>
         <td>{% if head.in_stock %}{{ head.in_stock }}{% endif %}</td>
-        <td>Category</td>
+        <!-- <td>Category</td> -->
             
         <td><a href="/product-detail/{{head.id}}" ><button class="btn btn-info">Open</button></a>
             <a href="/update-product/{{head.id}}" ><button class="btn btn-warning">Update</button></a>

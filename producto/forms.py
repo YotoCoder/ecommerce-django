@@ -1,6 +1,11 @@
-from django.forms import ModelForm
+from ssl import Options
+from django import forms
 from .models import Producto
 
-class ProductForm(ModelForm):
-    model = Producto
-    fields = 'name'
+class ProductForm(forms.ModelForm):
+    
+    class Meta:
+        model = Producto
+
+        fields = ['price', 'description', 'img', 'in_stock', 'category']
+        
