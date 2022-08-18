@@ -1,6 +1,7 @@
-{% extends "user/index.html" %}
+{% extends "templates/base.html" %}
+
 {% load crispy_forms_tags %}
-{% block start %}
+{% block content %}
 
  <div class="content-section col-md-8 col-md-offset-2">
   <center>
@@ -10,11 +11,12 @@
       {{ form|crispy}}
     </fieldset>
    <center>
-    <button style="background: black; font-size: 2rem; padding:1%;" class="btn btn-outline-info" type="submit"><span class="glyphicon glyphicon-log-in"></span> &nbsp; login</button>
+    <button class="btn btn-success" type="submit"> &nbsp; Login</button>
+    <a href="/"><input type="button" class="btn btn-outline-primary" value="Cancel"></a>
   </center>
   <br/>
   <sub style="text-align: left;"><a href="{% url 'register' %}" style="text-decoration: none; color: blue; padding:2%; cursor:pointer; margin-right:2%;">don't have account,sign up</a></sub>
   </form>
 </center>
  </div>
-{% endblock start %}
+{% endblock content %}

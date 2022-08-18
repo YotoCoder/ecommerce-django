@@ -54,8 +54,25 @@
 					<ul class="header-links pull-right">
 						<li><a href="#">$ </a></li>
 						<!--Pendiente cambiar ruta y colocar if-->
-						<li><a href="/admin"><i class="fa fa-user-o"></i> My Account</a></li>
-					</ul>
+
+
+						{% if user.is_authenticated %}
+
+							{% if user.is_staff %}
+						
+							<li><a href="/product-list"><i class="fa fa-user-o"></i>{{ user | capfirst }}</a></li>
+							<li><a href="/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
+						
+							{% else %}
+							<li><a href="/car-shop"><i class="fa fa-user-o"></i>{{ user | capfirst }}</a></li>
+							<li><a href="/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
+							{% endif %}
+						{% else %}
+						<li><a href="/login"><i class="fa fa-sign-in"></i>Login</a></li>
+						
+						{% endif %}
+
+					</ul>	
 				</div>
 			</div>
 			<!-- /TOP HEADER -->
@@ -69,7 +86,7 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="#" class="logo">
+								<a href="/" class="logo">
 									<img width="160px" height="90" src='{% static "/img/logo.png"%}'>
 								</a>
 							</div>

@@ -3,25 +3,24 @@ from django.views.generic import TemplateView, DetailView, CreateView, ListView,
 from .models import Producto
 from .forms import ProductForm
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 # Create your views here.
+
+class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
+
+    def test_func(self):
+        return self.request.user.is_staff
 
 class Index(ListView):
     model = Producto
     template_name = 'templates/index.html'
+  
 
-class DeleteProduct(DeleteView):
+class ProductDetail(DetailView):
     model = Producto
-    template_name = 'templates/producto/delete_product.html'
-    success_url = '/product-list'
+    template_name = 'templates/producto/product_detail.html'
 
-class UpdateProduct(UpdateView):
-    model = Producto
-    template_name = 'templates/producto/update_product.html'
-    success_url = '/product-list'
-    fields = '__all__'
-
-class ProductList(ListView):
+class ProductList(StaffRequiredMixin, ListView):
     model = Producto
     template_name = 'templates/producto/product_list.html'
     paginate_by = 10
@@ -30,15 +29,20 @@ class ProductList(ListView):
         context = super().get_context_data(**kwargs)
         context['headlines'] = self.model._meta.get_fields()
         return context
-        
 
-class ProductDetail(DetailView):
-
+class DeleteProduct(StaffRequiredMixin, DeleteView):
     model = Producto
-    template_name = 'templates/producto/product_detail.html'
+    template_name = 'templates/producto/delete_product.html'
+    success_url = '/product-list'
+
+class UpdateProduct(StaffRequiredMixin, UpdateView):
+    model = Producto
+    template_name = 'templates/producto/update_product.html'
+    success_url = '/product-list'
+    fields = '__all__'
 
 # LoginRequiredMixin,
-class CreateProduct(CreateView):
+class CreateProduct(StaffRequiredMixin, CreateView):
 
     model = Producto
     
