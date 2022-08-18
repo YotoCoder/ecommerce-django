@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, DetailView, CreateView, ListView,
 from .models import Producto
 from .forms import ProductForm
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 class Index(ListView):
@@ -36,7 +37,7 @@ class ProductDetail(DetailView):
     model = Producto
     template_name = 'templates/producto/product_detail.html'
 
-
+# LoginRequiredMixin,
 class CreateProduct(CreateView):
 
     model = Producto

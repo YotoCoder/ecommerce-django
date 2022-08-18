@@ -12,21 +12,44 @@
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
-							<div class="product-preview">
-								<img src="{% static '/img/product01.png' %}" alt="">
-							</div>
 
+							
+							{% if object.img %}
 							<div class="product-preview">
-								<img src="{% static '/img/product03.png' %}" alt="">
+								<img src="{{object.img.url}}" alt="">
 							</div>
+							{% endif %}
 
+							{% if object.img1 %}
 							<div class="product-preview">
-								<img src="{% static '/img/product06.png' %}" alt="">
+								<img src="{{object.img1.url}}" alt="">
 							</div>
+							{% endif %}
 
+							{% if object.img2 %}
 							<div class="product-preview">
-								<img src="{% static '/img/product08.png' %}" alt="">
+								<img src="{{object.img2.url}}" alt="">
 							</div>
+							{% endif %}
+
+							{% if object.img3 %}
+							<div class="product-preview">
+								<img src="{{object.img3.url}}" alt="">
+							</div>
+							{% endif %}
+
+							{% if object.img4 %}
+							<div class="product-preview">
+								<img src="{{object.img4.url}}" alt="">
+							</div>
+							{% endif %}
+
+							{% if object.img5 %}
+							<div class="product-preview">
+								<img src="{{object.img5.url}}" alt="">
+							</div>
+							{% endif %}
+
 						</div>
 					</div>
 					<!-- /Product main img -->
@@ -34,21 +57,43 @@
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
-							<div class="product-preview">
-								<img src="{% static '/img/product01.png' %}" alt="">
-							</div>
 
+							{% if object.img %}
 							<div class="product-preview">
-								<img src="{% static '/img/product03.png' %}" alt="">
+								<img src="{{object.img.url}}" alt="">
 							</div>
+							{% endif %}
 
+							{% if object.img1 %}
 							<div class="product-preview">
-								<img src="{% static '/img/product06.png' %}" alt="">
+								<img src="{{object.img1.url}}" alt="">
 							</div>
+							{% endif %}
 
+							{% if object.img2 %}
 							<div class="product-preview">
-								<img src="{% static '/img/product08.png' %}" alt="">
+								<img src="{{object.img2.url}}" alt="">
 							</div>
+							{% endif %}
+
+							{% if object.img3 %}
+							<div class="product-preview">
+								<img src="{{object.img3.url}}" alt="">
+							</div>
+							{% endif %}
+
+							{% if object.img4 %}
+							<div class="product-preview">
+								<img src="{{object.img4.url}}" alt="">
+							</div>
+							{% endif %}
+
+							{% if object.img5 %}
+							<div class="product-preview">
+								<img src="{{object.img5.url}}" alt="">
+							</div>
+							{% endif %}
+
 						</div>
 					</div>
 					<!-- /Product thumb imgs -->
