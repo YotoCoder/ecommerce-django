@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'producto',
+    'crispy_forms',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +137,7 @@ MEDIA_URL = 'media/'
 #Login url
 
 LOGIN_URL = '/login'
+
+# Crispy
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

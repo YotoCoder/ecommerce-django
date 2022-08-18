@@ -3,6 +3,8 @@ from django.urls import path, include
 from producto.views import ProductDetail, CreateProduct, ProductList, UpdateProduct, DeleteProduct, Index
 from django.conf import settings
 from django.conf.urls.static import static
+from user import views as user_view
+from django.contrib.auth import views as auth
 
 urlpatterns = [
     path('', Index.as_view()),
@@ -12,4 +14,11 @@ urlpatterns = [
     path('product-list', ProductList.as_view(), name='product-list'),
     path('update-product/<int:pk>', UpdateProduct.as_view()),
     path('delete-product/<slug:pk>', DeleteProduct.as_view()),
+
+    ##### user related path##########################
+    path('', include('user.urls')),
+    path('login/', user_view.Login, name ='login'),
+    path('logout/', auth.LogoutView.as_view(template_name ='user/index.html'), name ='logout'),
+    path('register/', user_view.register, name ='register'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
