@@ -1,0 +1,22 @@
+{% extends 'templates/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row align-items-center">
+            <!-- Product main img -->
+            <div class="col-md-5 col-md-push-2">
+                <form method="post">{% csrf_token %}
+                    <h3><p><b>Are you sure you want to delete "{{ object }}"?</b></p></h3>
+                    {{ form }}
+                    <input type="submit" class="btn btn-danger" value="Confirm">
+                    <a href="/product-list"><input type="button" class="btn btn-outline-primary" value="Cancel"></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>     
+{% endblock content %}

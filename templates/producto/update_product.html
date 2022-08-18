@@ -1,0 +1,29 @@
+{% extends 'templates/base.html' %}
+{% load static %}
+
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+
+{% block content %}
+{# Display a form #}
+<div class="container">
+    <div class="col-md-5 col-md-push-2">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+            <input type="submit" class="btn btn-info"  value="Save">
+            <a href="/product-list"><input type="button" class="btn btn-outline-primary" value="Cancel"></a>
+            {% endbuttons %}
+        </form>
+    </div>
+</div>
+{% endblock %}
