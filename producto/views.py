@@ -53,3 +53,9 @@ class CreateProduct(StaffRequiredMixin, CreateView):
 
     class Meta:
         form = ProductForm
+
+class Store(ListView):
+    model = Producto
+    template_name = 'templates/store.html'
+
+    paginate_by = 6

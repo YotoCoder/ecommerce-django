@@ -12,7 +12,8 @@
 	    {% block title %}
 		<title>E-commerce</title>
 		{% endblock title %}
-	
+
+
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -37,7 +38,7 @@
 </head>
 <body>
 	<style>
-		:root {--color-base: #008B8B; }
+		:root {--color-base: #9ee004; }
 	</style>
 
     {% block header %}
@@ -52,7 +53,7 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> Lima, Peru </a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#">$ </a></li>
+						<li><a href="#">$ USD</a></li>
 						<!--Pendiente cambiar ruta y colocar if-->
 
 
@@ -87,7 +88,7 @@
 						<div class="col-md-3">
 							<div class="header-logo">
 								<a href="/" class="logo">
-									<img width="160px" height="90" src='{% static "/img/logo.png"%}'>
+									<img width="160px" height="90" src='{% static "/img/logo1.png"%}'>
 								</a>
 							</div>
 						</div>
@@ -232,16 +233,16 @@
 							</form>
 							<ul class="newsletter-follow">
 								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="fa fa-instagram"></i></a>
+									<a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="fa fa-pinterest"></i></a>
+									<a href="https://whatsapp.com" target="_blank"><i class="fa fa-whatsapp"></i></a>
 								</li>
 							</ul>
 						</div>
@@ -267,7 +268,7 @@
                     <div class="col-md-3 col-xs-6">
                         <div class="footer">
                             <h3 class="footer-title">About Us</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                            <p>Con esta adquisición Yotoelectronics será el marketplace principal del grupo para brindar el mejor servicio junto con mejores productos tanto a clientes finales como a sellers, manteniendo su marca.</p>
                             <ul class="footer-links">
                                 <li><a href="#"><i class="fa fa-phone"></i>+51 935 119 585</a></li>
 								<li><a href="#"><i class="fa fa-envelope-o"></i>yotoelectronics@gmail.com<a></li>
@@ -360,5 +361,8 @@
 	<script src="{% static 'js/nouislider.min.js' %}"></script>
 	<script src="{% static 'js/jquery.zoom.min.js' %}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
+
+	<!-- VueJs-->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 </body>
 </html>
