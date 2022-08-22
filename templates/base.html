@@ -33,7 +33,7 @@
 
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
-
+		<link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}"/>
     </head>
 </head>
 <body>
@@ -43,10 +43,10 @@
 
     {% block header %}
     <!-- HEADER -->
-	<header>
+	<header id="header">
 			<!-- TOP HEADER -->
-			<div id="top-header">
-				<div class="container">
+			<div id="top-header" >
+				<div class="container" id="headerTop">
 					<ul class="header-links pull-left">
 						<li><a href="#"><i class="fa fa-phone"></i>+51 935 119 585</a></li>
 						<li><a href="#"><i class="fa fa-envelope-o"></i> yotoelectronics@gmail.com</a></li>
@@ -111,7 +111,7 @@
 						<!-- /SEARCH BAR -->
 
 						<!-- ACCOUNT -->
-						<div class="col-md-3 clearfix">
+						<div class="col-md-3 clearfix" >
 							<div class="header-ctn">
 								<!-- Wishlist -->
 								<div>

@@ -1,31 +1,40 @@
 
-
 function toCart(obj){
 
-	obj.qty = document.getElementById('qty').value
+    itemsLocal = JSON.parse(localStorage.getItem('items'))
 
-    console.log(obj.qty)
+    if(itemsLocal.include(obj.id)){
+        console.log('se encuentra')
+        itemsLocal.qty += obj.qty;
+    }else{
+        obj.qty = document.getElementById('qty').value;
+    }
 
-    data = localStorage.setItem('items', JSON.stringify(obj))
+	
 
-    console.log(JSON.parse(localStorage.getItem('items')))
+    console.log(obj.qty);
 
+    data = localStorage.setItem('items', JSON.stringify(obj));
+
+    console.log(JSON.parse(localStorage.getItem('items')));
+
+    renderCart()
 };
 
 
 
 function renderCart(){
     
-    var cartList = document.getElementById('cart-list')
+    var cartList = document.getElementById('cart-list');
 
-    let items = JSON.parse(sessionStorage.getItem('items'))
+    let items = JSON.parse(localStorage.getItem('items'));
 
-    let item = items
+    let item = items;
 
-    console.log(item)
+    console.log(item);
 
     cartList.innerHTML = 
-    
+
     `
             <div class="product-widget">
 
@@ -43,9 +52,6 @@ function renderCart(){
             </div>
     
     `;
-    
-    
-    
 };
 
 
