@@ -38,7 +38,7 @@
 </head>
 <body>
 	<style>
-		:root {--color-base: #89a329; }
+		:root {--color-base: #59c428; }
 	</style>
 
     {% block header %}
@@ -131,28 +131,24 @@
 										<div class="qty">3</div>
 									</a>
 									<div class="cart-dropdown">
-										<div class="cart-list">
+										<div class="cart-list" id="cart-list">
+
 											<div class="product-widget">
+
 												<div class="product-img">
 													<img src="{% static '/img/product01.png' %}" alt="">
 												</div>
+
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">product name goes here</a></h3>
 													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
 												</div>
+												
 												<button class="delete"><i class="fa fa-close"></i></button>
+											
 											</div>
 
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="{% static '/img/product02.png' %}" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
+											
 										</div>
 										<div class="cart-summary">
 											<small>3 Item(s) selected</small>
@@ -360,8 +356,6 @@
 	<script src="{% static 'js/nouislider.min.js' %}"></script>
 	<script src="{% static 'js/jquery.zoom.min.js' %}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
-
-	<!-- VueJs-->
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>
