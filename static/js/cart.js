@@ -1,16 +1,21 @@
 
 function toCart(obj){
 
-    itemsLocal = JSON.parse(localStorage.getItem('items'))
-
-    if(itemsLocal.include(obj.id)){
+    // var itemsLocal = JSON.parse(localStorage.getItem('items'))
+    
+    
+    /* if(itemsLocal.include(obj.id)){
         console.log('se encuentra')
         itemsLocal.qty += obj.qty;
     }else{
         obj.qty = document.getElementById('qty').value;
+    } */
+    
+    if(obj.qty == null){
+        obj.qty = 1
     }
 
-	
+    obj.qty = document.getElementById('qty').value;
 
     console.log(obj.qty);
 
@@ -34,7 +39,6 @@ function renderCart(){
     console.log(item);
 
     cartList.innerHTML = 
-
     `
             <div class="product-widget">
 

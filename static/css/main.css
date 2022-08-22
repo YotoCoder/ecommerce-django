@@ -11,3 +11,22 @@
     margin-top: 0px;
     
 }
+
+@media screen and (max-width: 500px){
+    #header{
+        height: 10rem;
+    }
+    .header-search{
+        display: none;
+    }
+
+    .headerTop{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .header-ctn{
+        display: flex;
+    }
+}
