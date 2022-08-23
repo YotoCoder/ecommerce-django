@@ -258,7 +258,7 @@
 									<div class="add-to-cart">
 										
 										{% if obj.img %}
-										<button class="add-to-cart-btn" onclick="toCart(	
+										<button class="add-to-cart-btn" onclick="addToCar(	
 																							{
 																								id:'{{obj.id}}',
 																								price: '{{obj.price}}',
@@ -267,7 +267,7 @@
 																								qty: 1
 																							}
 																							
-																						)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+																						 )"><i class="fa fa-shopping-cart"></i> add to cart</button>
 										
 										{% endif %}
 									</div>
@@ -293,5 +293,7 @@
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
-		
+
 {% endblock content %}
+
+
