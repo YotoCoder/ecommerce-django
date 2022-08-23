@@ -144,7 +144,18 @@
 										<span class="qty-down">-</span>
 									</div>
 								</div>
-								<button class="add-to-cart-btn" onclick="toCart({id:'{{object.id}}', price: '{{object.price}}', name:'{{object.name}}', img:'{{object.img.url}}'})"><i class="fa fa-shopping-cart"></i> add to cart</button>
+								{% if object.img %}
+										<button class="add-to-cart-btn" onclick="toCart(	
+																							{
+																								id:'{{object.id}}',
+																								price: '{{object.price}}',
+																								name:'{{object.name}}',											
+																								img:'{{object.img.url}}'
+																							}
+																							
+																						)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+										
+								{% endif %}
 							</div>
 
 							<ul class="product-btns">

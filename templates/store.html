@@ -227,9 +227,9 @@
 								<div class="product">
 									<a href="/product-detail/{{obj.id}}">
 									<div class="product-img">
-										
+										{% if obj.img %}
 										<img src="{{ obj.img.url }}" alt="">
-										
+										{% endif %}
 										<div class="product-label">
 											<!-- <span class="sale">-30%</span>-->
 											<!-- <span class="new">NEW</span>-->
@@ -256,8 +256,22 @@
 									</div>
 
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn" onclick="toCart({id:'{{obj.id}}', price: '{{obj.price}}', name:'{{obj.name}}', img:'{{obj.img.url}}'})"><i class="fa fa-shopping-cart"></i> add to cart</button>
+										
+										{% if obj.img %}
+										<button class="add-to-cart-btn" onclick="toCart(	
+																							{
+																								id:'{{obj.id}}',
+																								price: '{{obj.price}}',
+																								name:'{{obj.name}}',											
+																								img:'{{obj.img.url}}',
+																								qty: 1
+																							}
+																							
+																						)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+										
+										{% endif %}
 									</div>
+
 								</div>
 							</div>
 							<!-- /product -->

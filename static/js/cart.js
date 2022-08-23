@@ -1,27 +1,46 @@
 
 function toCart(obj){
 
+    let carrito = []
+
+    var storage = JSON.parse(localStorage.getItem('items'))
+
+
+    if(carrito){
+        console.log('existe carrito')
+
+        carrito.push({uno:'1'})
+
+        console.log(`carrito:${carrito}`)
+
+
+
+    }else{
+        console.log('No existe carrito')
+
+    }
+
+    
+
+
+   
+
+    // console.log(obj.qty);
+
     // var itemsLocal = JSON.parse(localStorage.getItem('items'))
     
     
-    /* if(itemsLocal.include(obj.id)){
-        console.log('se encuentra')
-        itemsLocal.qty += obj.qty;
-    }else{
+
+
+    if(obj.qty != 1){
         obj.qty = document.getElementById('qty').value;
-    } */
-    
-    if(obj.qty == null){
-        obj.qty = 1
     }
 
-    obj.qty = document.getElementById('qty').value;
-
-    console.log(obj.qty);
+   
 
     data = localStorage.setItem('items', JSON.stringify(obj));
 
-    console.log(JSON.parse(localStorage.getItem('items')));
+    //console.log(JSON.parse(localStorage.getItem('items')));
 
     renderCart()
 };
@@ -29,14 +48,15 @@ function toCart(obj){
 
 
 function renderCart(){
-    
+
+
     var cartList = document.getElementById('cart-list');
 
     let items = JSON.parse(localStorage.getItem('items'));
 
     let item = items;
 
-    console.log(item);
+    //console.log(item);
 
     cartList.innerHTML = 
     `

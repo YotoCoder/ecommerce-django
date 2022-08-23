@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
-from producto.views import Store, ProductDetail, CreateProduct, ProductList, UpdateProduct, DeleteProduct, Index
+from producto.views import (Store, ProductDetail, CreateProduct,
+                            ProductList, UpdateProduct, DeleteProduct,
+                            Index)
 from django.conf import settings
 from django.conf.urls.static import static
 from user import views as user_view
