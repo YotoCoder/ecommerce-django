@@ -145,12 +145,13 @@
 									</div>
 								</div>
 								{% if object.img %}
-										<button class="add-to-cart-btn" onclick="toCart(	
+										<button class="add-to-cart-btn" onclick="addToCar(	
 																							{
 																								id:'{{object.id}}',
 																								price: '{{object.price}}',
 																								name:'{{object.name}}',											
-																								img:'{{object.img.url}}'
+																								img:'{{object.img.url}}',
+																								qty: null
 																							}
 																							
 																						)"><i class="fa fa-shopping-cart"></i> add to cart</button>

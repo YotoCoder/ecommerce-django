@@ -35,11 +35,48 @@ let cart = new Local('items')
 
 
 function addToCar(obj){
-   
-    cart.add(obj)
+	
+	if(obj.qty === null){
+		let qty = parseFloat(document.getElementById('qty').value)
+		obj.qty = qty
+	}
+
+	let carrito = cart.get()
+
+	console.log(obj)
+
+	if(!carrito[0]) {
+		console.log('Vacio agregando primer registro')
+		cart.add(obj)
+	}else {
+		carrito.forEach(item => {
+		
+			if(item.id === obj.id){
+				console.log('Ya existe, actualizando el elemento')
+	
+				// item.qty = 1000
+
+				// let x = parseFloat(item.qty) 
+	
+				// let y = parseFloat(obj.qty)
+	
+				// let qty_total = x + y
+	
+				console.log(carrito)
+
+	
+			}else{	
+				console.log('no existe agregando')
+				cart.add(obj)
+			}
+		});
+
+	}	
+
     console.log(cart.get())
 	renderCart()
 }
+
 
 function createItem(item){
 	const container = document.createElement('div')
@@ -62,6 +99,7 @@ function createItem(item){
 
 	container.querySelector('button').addEventListener('click', function(){
 		cart.delete(item.id)
+		renderCart()
 		container.remove()
 	});
 
@@ -70,18 +108,26 @@ function createItem(item){
 
 function renderCart(){
 
+	let qty_ext = document.getElementById('qty-ext')
+
+	let sum = 0;
+	let total = document.getElementById('sub-total')
+
     var cartList = document.getElementById('cart-list');
+	cartList.innerHTML = ''
 
-    let items = cart.get()
-
-    //console.log(item);
-
-	cartList.remove()
+	let items = cart.get()
 
     items.forEach(item => {
 		product = createItem(item)
 		cartList.appendChild(product)
+
+		sum += parseFloat(item.price);
+
     });
+
+	total.innerHTML = `SUBTOTAL: $ ${sum}`
+	qty_ext.innerHTML = `${items.length}`
 
 };
 
