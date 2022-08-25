@@ -36,47 +36,8 @@ let cart = new Local('items')
 
 function addToCar(obj){
 	
-	if(obj.qty === null){
-		let qty = parseFloat(document.getElementById('qty').value)
-		obj.qty = qty
-	}
-
-	let carrito = cart.get()
-
-	console.log(obj)
-
-	if(!carrito[0]) {
-		console.log('Vacio agregando primer registro')
-		cart.add(obj)
-	}else {
-		carrito.forEach(item => {
-		
-			if(item.id == obj.id){
-				console.log('Ya existe, actualizando el elemento')
-	
-				// item.qty = 1000
-
-				// let x = parseFloat(item.qty) 
-	
-				// let y = parseFloat(obj.qty)
-	
-				// let qty_total = x + y
-	
-				console.log(carrito)
-
-	
-			}else{	
-				console.log('no existe agregando')
-				cart.add(obj)
-			}
-
-		});
-
-	}	
-
-    console.log(cart.get())
-	renderCart()
 }
+
 
 
 function createItem(item){
