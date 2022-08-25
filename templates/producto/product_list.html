@@ -2,6 +2,15 @@
 {% load static %}
 
 
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block mainheader %}
+{% endblock mainheader %}
+
 {% block breadcrumb %}
 	<div id="breadcrumb" class="section">
 		<!-- container -->
@@ -24,62 +33,57 @@
 
 
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">ID </th>
+                        <th scope="col">Name </th>
+                        <th scope="col">Price </th>
+                        <th scope="col">Description </th>
+                        <th scope="col">Imagen </th>
+                        <th scope="col">In Sock </th>
 
-<table class="table table-dark table-hover">
-  <thead>
-    <tr>
-        
-        <th scope="col">ID </th>
-        <th scope="col">Name </th>
-        <th scope="col">Price </th>
-        <th scope="col">Description </th>
-        <th scope="col">Imagen </th>
-        <th scope="col">In Sock </th>
+                        <th>Actions: <a href="/create-product" ><button class="btn btn-primary">Add</button></a></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for head in object_list %}
+                        <tr>
+                        <th scope="row">{{head.id}}</th>
+                        <td><a href="/product-detail/{{head.id}}" >{{head.name}}</a></td>
+                        <td>{{head.price}}</td>
+                        <td>{% if head.description %}{{head.description}}{% endif %}</td>
+                        <!-- <td>{% if head.code %}{{ head.code }}{% endif %}</td>
+                        <td>{% if head.color %}{{ head.color }}{% endif %}</td>-->
+                        <td>{% if head.img %}<img width="70px" height="70" src='{{head.img.url}}'>{% endif %}</td>
+                        <td>{% if head.in_stock %}{{ head.in_stock }}{% endif %}</td>
+                        <!-- <td>Category</td> -->
+                            
+                        <td><a href="/product-detail/{{head.id}}" ><button class="btn btn-info">Open</button></a>
+                            <a href="/update-product/{{head.id}}" ><button class="btn btn-warning">Update</button></a>
+                            <a href="/delete-product/{{head.id}}" ><button class="btn btn-danger">Delete</button></a></td>
+                        </tr>
+                        {% endfor %}
+                </tbody>			
+                {% include 'templates/paginator.html' %}				
+            </table> 
 
-        <th>Actions: <a href="/create-product" ><button class="btn btn-primary">Add</button></a></th>
-        
-    </tr>
-  </thead>
-  <tbody>
-     {% for head in object_list %}
-        <tr>
-        <th scope="row">{{head.id}}</th>
-        <td><a href="/product-detail/{{head.id}}" >{{head.name}}</a></td>
-        <td>{{head.price}}</td>
-        <td>{% if head.description %}{{head.description}}{% endif %}</td>
-        <!-- <td>{% if head.code %}{{ head.code }}{% endif %}</td>
-        <td>{% if head.color %}{{ head.color }}{% endif %}</td>-->
-        <td>{% if head.img %}<img width="70px" height="70" src='{{head.img.url}}'>{% endif %}</td>
-        <td>{% if head.in_stock %}{{ head.in_stock }}{% endif %}</td>
-        <!-- <td>Category</td> -->
+                                
+
             
-        <td><a href="/product-detail/{{head.id}}" ><button class="btn btn-info">Open</button></a>
-            <a href="/update-product/{{head.id}}" ><button class="btn btn-warning">Update</button></a>
-            <a href="/delete-product/{{head.id}}" ><button class="btn btn-danger">Delete</button></a></td>
-        </tr>
-        {% endfor %}
-  </tbody>							
-</table> 
+          
+        </div>
 
-                
-
-
-    <div class="pagination">
-    <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-            {% endif %}
-
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
+    
+    
     </div>
+</div>
+
+
 {% endblock content %}
 

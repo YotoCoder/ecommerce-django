@@ -10,7 +10,28 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
+{% block mainheader %}
+{% endblock mainheader %}
 
+{% block breadcrumb %}
+	<div id="breadcrumb" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="breadcrumb-header">Product Update</h3>
+					<ul class="breadcrumb-tree">
+						<li><a href="/product-list">Product List</a></li>
+						<li class="active">Product Update</li>
+					</ul>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+{% endblock breadcrumb %}
 
 {% block content %}
 {# Display a form #}
