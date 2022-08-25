@@ -51,7 +51,7 @@ function addToCar(obj){
 	}else {
 		carrito.forEach(item => {
 		
-			if(item.id === obj.id){
+			if(item.id == obj.id){
 				console.log('Ya existe, actualizando el elemento')
 	
 				// item.qty = 1000
@@ -69,6 +69,7 @@ function addToCar(obj){
 				console.log('no existe agregando')
 				cart.add(obj)
 			}
+
 		});
 
 	}	
@@ -130,6 +131,27 @@ function renderCart(){
 	qty_ext.innerHTML = `${items.length}`
 
 };
+
+let carrito = document.querySelector("#cart");
+
+let dropdown = document.querySelector('.cart-dropdown')
+
+const background = document.querySelector("#background-invisible")
+
+
+carrito.addEventListener("mouseover", () =>{
+
+    carrito.classList.add('open')
+    background.classList.remove("hide")
+    
+})
+
+carrito.addEventListener("mouseout", () =>{
+
+    carrito.classList.remove('open')
+    background.classList.add("hide")
+    
+})
 
 
 document.addEventListener("load", renderCart());
