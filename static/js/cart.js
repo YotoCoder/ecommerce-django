@@ -60,8 +60,6 @@ function addToCar(obj){
 			}
 		});
 
-	
-
 	}	
 
 	cart.set(carrito)

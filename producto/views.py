@@ -59,3 +59,9 @@ class Store(ListView):
     template_name = 'templates/store.html'
 
     paginate_by = 6
+
+class Checkout(TemplateView):
+    template_name = 'templates/producto/checkout.html'
+
+class CartView(TemplateView):
+    template_name = 'templates/producto/cart.html'

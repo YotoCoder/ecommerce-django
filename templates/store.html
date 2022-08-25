@@ -1,6 +1,30 @@
 {% extends 'templates/base.html' %}
 {% load static %}
 
+
+{% block mainheader %}
+{% endblock mainheader %}
+
+{% block breadcrumb %}
+	<div id="breadcrumb" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="breadcrumb-header">Store</h3>
+					<ul class="breadcrumb-tree">
+						<li><a href="/">Home</a></li>
+						<li class="active">Store</li>
+					</ul>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+{% endblock breadcrumb %}
+
 {% block content %}
 
 		<!-- SECTION -->

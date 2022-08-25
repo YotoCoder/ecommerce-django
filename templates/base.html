@@ -37,7 +37,7 @@
     </head>
 </head>
 <body>
-	<div id="background-invisible" class="hide" ></div>
+	<!-- <div id="background-invisible" class="hide" ></div> -->
 
 	<style>
 		:root {--color-base: #6aa55f; }
@@ -54,9 +54,16 @@
 						<li><a href="#"><i class="fa fa-envelope-o"></i> yotoelectronics@gmail.com</a></li>
 						<li><a href="#"><i class="fa fa-map-marker"></i> Lima, Peru </a></li>
 					</ul>
+
+					
+
 					<ul class="header-links pull-right">
 						<li><a href="#">$ USD</a></li>
-						<!--Pendiente cambiar ruta y colocar if-->
+						<li>
+							{% block cart1 %}
+							{% endblock cart1 %}
+
+						</li>
 
 
 						{% if user.is_authenticated %}
@@ -81,6 +88,7 @@
 			<!-- /TOP HEADER -->
 
 			<!-- MAIN HEADER -->
+			{% block mainheader %}
 			<div id="header">
 				<!-- container -->
 				<div class="container ">
@@ -115,18 +123,8 @@
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix" >
 							<div class="header-ctn">
-								<!-- Wishlist 
-								<div>
-									<a href="#">
-										<i class="fa fa-heart-o"></i>
-										<span>Your Wishlist</span>
-										<div class="qty">2</div>
-									</a>
-								</div>
-								 /Wishlist -->
-
-								<!-- Cart -->
-								
+							
+								{% block cart %}
 
 								<div class="dropdown" id="cart">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
@@ -158,11 +156,13 @@
 											<h5 id="sub-total">SUBTOTAL: $ </h5>
 										</div>
 										<div class="cart-btns">
-											<a href="#">View Cart</a>
-											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+											<a href="/cart">View Cart</a>
+											<a href="/checkout">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>
+								{% endblock cart %}
+								
 								<!-- /Cart -->
 
 								<!-- Menu Toogle -->
@@ -181,11 +181,14 @@
 				</div>
 				<!-- container -->
 			</div>
+			{% endblock mainheader %}
 			<!-- /MAIN HEADER -->
 	</header>
 	<!-- /HEADER -->
     {% endblock header %}
     
+	{% block breadcrumb %}
+
     {% block navigation %}
     <!-- NAVIGATION -->
 	<nav id="navigation">
@@ -211,6 +214,7 @@
 	</nav>
 	<!-- /NAVIGATION -->
     {% endblock navigation %}
+	{% endblock breadcrumb %}
 
     {% block content %}
     {% endblock content %}

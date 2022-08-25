@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from producto.views import (Store, ProductDetail, CreateProduct,
+from producto.views import (CartView, Checkout, Store, ProductDetail, CreateProduct,
                             ProductList, UpdateProduct, DeleteProduct,
                             Index)
 from django.conf import settings
@@ -16,6 +16,8 @@ urlpatterns = [
     path('product-list/', ProductList.as_view(), name='product-list'),
     path('update-product/<int:pk>', UpdateProduct.as_view()),
     path('delete-product/<slug:pk>', DeleteProduct.as_view()),
+    path('checkout', Checkout.as_view()),
+    path('cart', CartView.as_view()),
 
     #Store view
     path('store/', Store.as_view()),

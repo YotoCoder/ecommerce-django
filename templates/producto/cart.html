@@ -1,0 +1,53 @@
+{% extends 'templates/base.html' %}
+{% load static %}
+
+{% block mainheader %}
+{% endblock mainheader %}
+
+{% block breadcrumb %}
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">Cart</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="/">Home</a></li>
+							<li class="active">Cart</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+{% endblock breadcrumb %}
+
+{% block cart %}
+{% endblock cart %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-md-12" id="container-cart" style="display: flex; flex-direction: column; align-items: center;">
+        
+            <div class="" id="cart-list">
+
+            </div>
+
+            <div class="cart-summary">
+                <small id="items"> Item(s) selected</small>
+                <h5 id="sub-total">SUBTOTAL: $ </h5>
+            </div>
+            
+            <div class="cart-btns">
+               
+                <button class="primary-btn order-submit" ><a href="/checkout">Checkout  <i class="fa fa-arrow-circle-right"> </i></a></button>
+            </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block newsletter %}
+{% endblock newsletter %}

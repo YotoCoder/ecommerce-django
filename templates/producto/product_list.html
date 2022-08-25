@@ -1,5 +1,28 @@
 {% extends 'templates/base.html' %}
 {% load static %}
+
+
+{% block breadcrumb %}
+	<div id="breadcrumb" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="breadcrumb-header">Product List</h3>
+					<ul class="breadcrumb-tree">
+						<li><a href="/">Home</a></li>
+						<li class="active">Product List</li>
+					</ul>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+{% endblock breadcrumb %}
+
+
 {% block content %}
 
 <table class="table table-dark table-hover">
