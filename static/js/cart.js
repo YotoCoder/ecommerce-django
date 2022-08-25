@@ -42,39 +42,38 @@ function addToCar(obj){
 	}
 
 	let carrito = cart.get()
-
+	let match = false;
 	console.log(obj)
 
 	if(!carrito[0]) {
+		
 		console.log('Vacio agregando primer registro')
 		cart.add(obj)
+
 	}else {
 		carrito.forEach(item => {
-		
 			if(item.id === obj.id){
 				console.log('Ya existe, actualizando el elemento')
-	
-				// item.qty = 1000
-
-				// let x = parseFloat(item.qty) 
-	
-				// let y = parseFloat(obj.qty)
-	
-				// let qty_total = x + y
-	
-				console.log(carrito)
-
-	
-			}else{	
-				console.log('no existe agregando')
-				cart.add(obj)
+				match = true
+				let qty_total = parseFloat(item.qty) + parseFloat(obj.qty)
+				item.qty = qty_total
 			}
 		});
 
+	
+
 	}	
 
+	cart.set(carrito)
     console.log(cart.get())
+
+	if(!match){
+		console.log('no existe agregando')
+		cart.add(obj)
+	}
+
 	renderCart()
+	
 }
 
 
@@ -118,16 +117,35 @@ function renderCart(){
 
 	let items = cart.get()
 
-    items.forEach(item => {
-		product = createItem(item)
-		cartList.appendChild(product)
+	let qty_out = 0;
 
-		sum += parseFloat(item.price);
+    items.forEach(item => {
+
+		if(item.qty > 1){
+
+			let x = item.price * item.qty
+			product = createItem(item)
+			cartList.appendChild(product)
+
+			sum += parseFloat(x);
+
+			qty_out += item.qty
+
+		}else{
+
+			product = createItem(item)
+			cartList.appendChild(product)
+
+			sum += parseFloat(item.price);
+
+			qty_out += item.qty
+		}
 
     });
 
+
 	total.innerHTML = `SUBTOTAL: $ ${sum}`
-	qty_ext.innerHTML = `${items.length}`
+	qty_ext.innerHTML = `${qty_out}`
 
 };
 
