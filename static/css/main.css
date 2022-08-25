@@ -1,3 +1,25 @@
+
+
+
+
+
+
+.hide{
+    display: none;
+}
+
+
+#background-invisible {
+    z-index: 1000;
+    position: absolute;
+    background-color: black;
+    opacity: 0.7;
+    top: 0;
+    height: 300vh;
+    width: 300vw;
+}
+
+
 #header {
     position: sticky;
     top: 0px;
@@ -30,3 +52,5 @@
         display: flex;
     }
 }
+
+
